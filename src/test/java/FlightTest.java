@@ -85,19 +85,13 @@ public class FlightTest {
         assertEquals(4, flight.getFlightPassengerCount());
     }
 
-
-
-
-
-//    @Test
-//    public void canGetNumberOfEmptySeats(){
-//        flight = new Flight(PlaneType.CESSNA, "BA3", "Oslo", "Edinburgh", "1500" );
-//        flight.checkInPassenger(passenger1);
-//        flight.checkInPassenger(passenger2);
-//        flight.numberOfEmptySeats();
-//        assertEquals(2, );
-//
-//    }
+    @Test
+    public void canGetNumberOfEmptySeats(){
+        flight = new Flight(PlaneType.CESSNA, "BA3", "Oslo", "Edinburgh", "1500" );
+        flight.checkInPassenger(passenger1);
+        flight.checkInPassenger(passenger2);
+        assertEquals(2, flight.numberOfEmptySeats());
+    }
 
 
 

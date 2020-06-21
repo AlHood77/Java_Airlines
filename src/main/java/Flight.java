@@ -48,4 +48,9 @@ public class Flight {
             passengers.add(passenger);
         }
     }
+
+    public int numberOfEmptySeats() {
+        int emptySeats = getPlane().getCapacity() - getFlightPassengerCount();
+        return emptySeats;
+    }
 }
