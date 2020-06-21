@@ -46,6 +46,11 @@ public class FlightTest {
         assertEquals("1000", flight.getDepartureTime());
     }
 
+    @Test
+    public void flightStartsEmpty(){
+        assertEquals(0, flight.getFlightPassengerCount());
+    }
+
 
 
 }
