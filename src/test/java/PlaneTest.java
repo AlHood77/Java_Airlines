@@ -6,6 +6,8 @@ import static org.junit.Assert.assertEquals;
 public class PlaneTest {
 
     private Plane plane;
+    Passenger passenger1;
+    Passenger passenger2;
 
     @Before
     public void before(){
@@ -14,12 +16,23 @@ public class PlaneTest {
 
     @Test
     public void planeHasCapacity(){
-        assertEquals(4, plane.getPlaneCapacity());
+        assertEquals(4, plane.PlaneCapacity());
     }
 
     @Test
     public void planeHasWeight(){
         assertEquals(200, plane.getWeight());
+    }
+
+    @Test
+    public void passengerListStartsEmpty(){
+        assertEquals(0, plane.getPassengerSize());
+    }
+
+    @Test
+    public void canAddPassengertoPlane(){
+        plane.addPassenger(passenger1);
+        assertEquals(1, plane.getPassengerSize());
     }
 
 

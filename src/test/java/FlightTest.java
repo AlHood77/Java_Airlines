@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class FlightTest {
@@ -50,6 +52,14 @@ public class FlightTest {
     public void flightStartsEmpty(){
         assertEquals(0, flight.getFlightPassengerCount());
     }
+
+//    @Test
+//    public void canCheckInPassengerOnFlight(){
+//        ArrayList<Passenger> passengers = new ArrayList<Passenger>();
+//        passengers.add(passenger1);
+//        flight.checkInPassenger("BA8");
+//        assertEquals(1, flight.getFlightPassengerCount());
+//    }
 
 
 

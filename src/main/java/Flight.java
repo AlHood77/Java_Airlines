@@ -42,4 +42,8 @@ public class Flight {
     public int getFlightPassengerCount(){
         return passengers.size();
     }
+
+//    public void checkInPassenger(String flightNumber){
+//
+//    }
 }
