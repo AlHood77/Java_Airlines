@@ -24,8 +24,22 @@ public class Plane {
     }
 
     public void addPassenger(Passenger passenger){
-        this.passengers.add(passenger);
+        if (getPassengerSize() < plane.getCapacity()) {
+            passengers.add(passenger);
+        }
+    }
+
+    public void removePassenger(Passenger passenger){
+        passengers.remove(passenger);
+    }
+
+    public void clearPlane(){
+        passengers.clear();
     }
 
 
+
 }
+
+
+

@@ -7,15 +7,18 @@ import static org.junit.Assert.assertEquals;
 
 public class FlightTest {
 
-    Flight flight;
-    Passenger passenger1;
-    Passenger passenger2;
-    Passenger passenger3;
-    Passenger passenger4;
-    Passenger passenger5;
+    private Flight flight;
+    private Plane plane1;
+    private Passenger passenger1;
+    private Passenger passenger2;
+    private Passenger passenger3;
+    private Passenger passenger4;
+    private Passenger passenger5;
+
 
     @Before
     public void setUp() {
+        plane1 = new Plane(PlaneType.CESSNA);
         flight = new Flight(PlaneType.CESSNA, "BA8", "London", "Edinburgh", "1000");
         passenger1 = new Passenger("Alan", 2);
         passenger2 = new Passenger("Dave", 1);
@@ -25,8 +28,8 @@ public class FlightTest {
     }
 
     @Test
-    public void flightHasPlaneType(){
-        assertEquals(PlaneType.CESSNA, flight.getPlaneType());
+    public void flightHasPlane(){
+        assertEquals(PlaneType.CESSNA, flight.getPlane());
     }
 
     @Test
@@ -49,17 +52,53 @@ public class FlightTest {
     }
 
     @Test
-    public void flightStartsEmpty(){
+    public void canGetNumberOfPassengersOnFlight_startsEmpty(){
+        flight = new Flight(PlaneType.CESSNA, "BA1", "Madrid", "Edinburgh", "1400" );
         assertEquals(0, flight.getFlightPassengerCount());
     }
 
+    @Test
+    public void canCheckInPassengerOnFlight_ifSeatsAvailable(){
+        flight = new Flight(PlaneType.CESSNA, "BA1", "Madrid", "Edinburgh", "1400" );
+        flight.checkInPassenger(passenger1);
+        assertEquals(1, flight.getFlightPassengerCount());
+    }
+
+    @Test
+    public void canCheckInPassengerOnFlight_ifAtCapacity(){
+        flight = new Flight(PlaneType.CESSNA, "BA1", "Madrid", "Edinburgh", "1400" );
+        flight.checkInPassenger(passenger1);
+        flight.checkInPassenger(passenger2);
+        flight.checkInPassenger(passenger3);
+        flight.checkInPassenger(passenger4);
+        assertEquals(4, flight.getFlightPassengerCount());
+    }
+
+    @Test
+    public void canCheckInPassengerOnFlight_ifOverCapacity(){
+        flight = new Flight(PlaneType.CESSNA, "BA1", "Madrid", "Edinburgh", "1400" );
+        flight.checkInPassenger(passenger1);
+        flight.checkInPassenger(passenger2);
+        flight.checkInPassenger(passenger3);
+        flight.checkInPassenger(passenger4);
+        flight.checkInPassenger(passenger5);
+        assertEquals(4, flight.getFlightPassengerCount());
+    }
+
+
+
+
+
 //    @Test
-//    public void canCheckInPassengerOnFlight(){
-//        ArrayList<Passenger> passengers = new ArrayList<Passenger>();
-//        passengers.add(passenger1);
-//        flight.checkInPassenger("BA8");
-//        assertEquals(1, flight.getFlightPassengerCount());
+//    public void canGetNumberOfEmptySeats(){
+//        flight = new Flight(PlaneType.CESSNA, "BA3", "Oslo", "Edinburgh", "1500" );
+//        flight.checkInPassenger(passenger1);
+//        flight.checkInPassenger(passenger2);
+//        flight.numberOfEmptySeats();
+//        assertEquals(2, );
+//
 //    }
+
 
 
 

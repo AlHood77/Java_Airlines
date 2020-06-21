@@ -23,7 +23,7 @@ public class Flight {
         return flightNumber;
     }
 
-    public PlaneType getPlaneType() {
+    public PlaneType getPlane() {
         return planeType;
     }
 
@@ -43,7 +43,9 @@ public class Flight {
         return passengers.size();
     }
 
-//    public void checkInPassenger(String flightNumber){
-//
-//    }
+    public void checkInPassenger(Passenger passenger) {
+        if (getFlightPassengerCount() < getPlane().getCapacity()) {
+            passengers.add(passenger);
+        }
+    }
 }
